@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@100;400;500;700&display=swap" rel="stylesheet">
+    <script src="./script.js"></script>
+    <style>
+        html, body {
+            font-family: "Roboto", sans-serif;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="accordion">
+        <div id="accordion-section-1" class="accordion-section" role="region" aria-label="We know this may not be the news you were expecting." style="margin-bottom: 0;padding: 25px 40px 35px;">
+            <div class="section-container">
+                <h3 style="margin-top: 0;">We know this may not be the news you were expecting.</h3>
+                <p style="color: rgb(94, 94, 94);">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eget dignissim metus. Proin sit amet bibendum tellus. In a ultrices enim, eget molestie leo. Sed sem magna, vehicula in laoreet vel, ultrices ac ipsum. Etiam scelerisque facilisis tristique. Quisque quis luctus est. Sed pellentesque, lacus in porta varius, nunc nisi maximus erat, in eleifend arcu dolor eget risus. Etiam ligula eros, tincidunt at maximus eget, scelerisque ac augue. Mauris consequat tellus sed euismod pretium. </p>
+                <p style="color: rgb(94, 94, 94);">Ut dignissim consequat eros et volutpat. Integer at massa nec justo congue consectetur. Quisque ac congue enim. Vivamus eu ante eget lacus tempor consectetur. Vivamus nec pellentesque mi. In hac habitasse platea dictumst. Etiam turpis enim, ornare et massa sed, bibendum tristique nisl. Sed nec urna vitae lectus rutrum condimentum. Nulla tristique at nisl quis faucibus. </p>
+                <p style="color: rgb(94, 94, 94);">Proin nec ullamcorper nisi, vitae pharetra turpis. Integer vel feugiat justo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Mauris non imperdiet augue. Fusce gravida elementum tellus, et facilisis magna accumsan non. Morbi luctus congue dignissim. Mauris ut mollis sem, sit amet vulputate turpis. Ut egestas, dolor sed faucibus accumsan, arcu velit gravida odio, vitae convallis elit turpis eu risus. Sed finibus urna quis mattis tristique. Aliquam erat volutpat. </p>
+            </div>
+        </div>
+        <button id="accordion-trigger-1" class="accordion-trigger style-reset" type="button" aria-expanded="true" aria-controls="accordion-section-1" tabindex="0">
+            <span style="font-weight: 600;">Read more</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m14.5 8.5-4 4-4-4"/></svg>
+        </button>
+    </div>
+    <style>
+        .accordion {
+            background-color: #e6f3fe;
+            border-radius: 5px;
+            border: 1px solid #d6e3ef;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+        }
+        .accordion .style-reset {
+            appearance: none;
+            background-color: transparent;
+            border: 0;
+            outline: 0;
+        }
+        .accordion .accordion-trigger {
+            border-top: 1px solid #d6e3ef;
+            border-radius: 0 0 5px 5px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 3px;
+            transition: ease-out 0.5s;
+        }
+        .accordion .accordion-trigger:hover {
+            transition: ease-in 0.3s;
+        }
+        .accordion .accordion-trigger:hover {
+            background-color: #ced9e6;
+            cursor: pointer;
+        }
+        .accordion .accordion-section {
+            position: relative;
+            max-height: 50px;
+            overflow-y: hidden;
+            display: flex;
+            transition: all 0.5s cubic-bezier(0.65,0.05,0.36,1);;
+        }
+        .accordion .accordion-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            /* gradient color should be placed here */
+            /* background: red; */
+            background: rgb(230,243,254);
+            background: linear-gradient(180deg, rgba(230,243,254,0.7) 70%, rgba(230,243,254,1) 100%); 
+        }
+        .accordion .accordion-section.is-active {
+            max-height: 1000px; /* or any large number */
+        }
+        .accordion .accordion-section > .section-container {
+            position: relative;
+            padding-left: 24px;
+        }
+        .accordion .accordion-section > .section-container::before {
+            content: "";
+            /* position: relative; */
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            background-color: transparent;
+            width: 18px;
+            height: 18px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZmlsbD0ibm9uZSIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiB3aWR0aD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTEyIDJDMTcuNTIzIDIgMjIgNi40NzggMjIgMTJDMjIgMTcuNTIyIDE3LjUyMyAyMiAxMiAyMkM2LjQ3NyAyMiAyIDE3LjUyMiAyIDEyQzIgNi40NzggNi40NzcgMiAxMiAyWk0xMiAzLjY2N0M3LjQwNSAzLjY2NyAzLjY2NyA3LjQwNSAzLjY2NyAxMkMzLjY2NyAxNi41OTUgNy40MDUgMjAuMzMzIDEyIDIwLjMzM0MxNi41OTUgMjAuMzMzIDIwLjMzMyAxNi41OTUgMjAuMzMzIDEyQzIwLjMzMyA3LjQwNSAxNi41OTUgMy42NjcgMTIgMy42NjdaTTExLjk5ODcgMTQuNTAyMkMxMi41NTAyIDE0LjUwMjIgMTIuOTk3MyAxNC45NDk0IDEyLjk5NzMgMTUuNTAwOUMxMi45OTczIDE2LjA1MjQgMTIuNTUwMiAxNi40OTk2IDExLjk5ODcgMTYuNDk5NkMxMS40NDcxIDE2LjQ5OTYgMTEgMTYuMDUyNCAxMSAxNS41MDA5QzExIDE0Ljk0OTQgMTEuNDQ3MSAxNC41MDIyIDExLjk5ODcgMTQuNTAyMlpNMTEuOTk0NSA3QzEyLjM3NDIgNi45OTk3IDEyLjY4ODIgNy4yODE2IDEyLjczODEgNy42NDc2NEwxMi43NDUxIDcuNzQ5NEwxMi43NDg3IDEyLjI1MUMxMi43NDkgMTIuNjY1MiAxMi40MTM1IDEzLjAwMTMgMTEuOTk5MyAxMy4wMDE2QzExLjYxOTYgMTMuMDAxOSAxMS4zMDU1IDEyLjcyIDExLjI1NTYgMTIuMzU0TDExLjI0ODcgMTIuMjUyMkwxMS4yNDUxIDcuNzUwNkMxMS4yNDQ3IDcuMzM2MzkgMTEuNTgwMiA3LjAwMDMzIDExLjk5NDUgN1oiIGZpbGw9IiMyMTIxMjEiLz48L3N2Zz4=");
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    </style>
+
+</body>
+</html>
